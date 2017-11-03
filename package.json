@@ -1,0 +1,72 @@
+{
+  "name": "active-api",
+  "version": "0.0.1",
+  "description": "Easily create state managed rest endpoints",
+  "main": "./dist/ActiveApi.js",
+  "scripts": {
+    "lint": "eslint --ext js --ext jsx src || exit 0",
+    "test": "jest --watchAll"
+  },
+  "repository": "https://github.com/pyoung213/active-api",
+  "author": "Patrick Young",
+  "license": "MIT",
+  "homepage": "https://github.com/pyoung213/active-api#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "moment": "^2.19.1"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.0.1",
+    "babel-loader": "7.1.2",
+    "babel-plugin-syntax-async-functions": "6.13.0",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-plugin-transform-regenerator": "6.26.0",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "6.24.1",
+    "babel-register": "6.26.0",
+    "babel-runtime": "6.26.0",
+    "babelrc-rollup": "^3.0.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.2.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "from": "^0.1.7",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-babel-minify": "^0.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^1.0.0",
+    "gulp-rollup": "^2.15.0",
+    "import": "^0.0.6",
+    "jest": "^21.2.1",
+    "path": "^0.12.7",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-progress": "^0.4.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-stream": "^1.24.1"
+  },
+  "jest": {
+    "verbose": false,
+    "bail": true,
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "setupFiles": [
+      "./initTests.js"
+    ]
+  }
+}

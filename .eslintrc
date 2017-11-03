@@ -1,0 +1,48 @@
+{
+    "parser": "babel-eslint",
+    "plugins": [
+        "react"
+    ],
+    "extends": ["airbnb"],
+    "rules": {
+        "click-events-have-key-events": 0,
+        "no-return-await": 0,
+        "generator-star-spacing": 0,
+        "no-unused-expressions": 0,
+        "comma-dangle": ["error", "never"],
+        "newline-before-return": "error",
+        "default-case": 0,
+        "global-require": 0,
+        "new-cap": [2, {"capIsNew": false, "newIsCap": true}],
+        "no-underscore-dangle": 0,
+        "quotes": [2, "double", {"avoidEscape": true, "allowTemplateLiterals": true}],
+        "no-unused-vars": [2, {
+                "vars": "all",
+                "args": "all",
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "indent": ["error", 4, {"SwitchCase": 1}],
+        "arrow-body-style": 0,
+        "no-use-before-define": ["error", { "functions": false, "classes": true }],
+        "max-len": ["error", 200, 4],
+        "consistent-return": 0,
+        "no-shadow": 0,
+        "prefer-destructuring": 0,
+        "import/no-unresolved": [2, { ignore: ['^AA-']}],
+        "import/no-extraneous-dependencies": 0,
+        "import/extensions": 0
+    },
+    "globals": {
+        "after": false,
+        "afterAll": false,
+        "afterEach": false,
+        "before": false,
+        "beforeAll": false,
+        "beforeEach": false,
+        "describe": false,
+        "it": false,
+        "expect": false,
+        "spyOn": false
+    }
+}
