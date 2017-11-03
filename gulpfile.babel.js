@@ -14,7 +14,7 @@ import rollupGlobals from "rollup-plugin-node-globals";
 import rollupBuiltins from "rollup-plugin-node-builtins";
 
 gulp.task("dist", () => {
-    return buildUmd();
+    return buildUmd(true);
 });
 
 function log(msg, color = "green") {
@@ -38,8 +38,10 @@ async function buildUmd(minify = false) {
 
         const bundle = await rollup({
             input: "src/ActiveApi.js",
+            external: ["lodash", "moment"],
             plugins: [
                 rollupProgress(),
+                rollupBabel(rbc),
                 rollupResolve({
                     preferBuiltins: false,
                     browser: true
@@ -47,8 +49,7 @@ async function buildUmd(minify = false) {
                 rollupJson(),
                 rollupCommonjs(),
                 rollupGlobals(),
-                rollupBuiltins({ crypto: true }),
-                rollupBabel(rbc),
+                rollupBuiltins(),
                 rollupReplace({
                     exclude: `./node_modules/**`,
                     ENV: JSON.stringify(process.env.NODE_ENV || "production")
@@ -67,6 +68,10 @@ async function buildUmd(minify = false) {
             file,
             name: "ActiveApi",
             format: "umd",
+            globals: {
+                lodash: "_",
+                moment: "moment"
+            },
             sourcemap: minify
         });
 
@@ -77,15 +82,15 @@ async function buildUmd(minify = false) {
     }
 }
 
-function onwarn(warning, warn) {
+function onwarn(warning) {
     switch (warning.code) {
-        case "EVAL":
+        case "THIS_IS_UNDEFINED":
             return;
 
         case "NON_EXISTENT_EXPORT":
             throw new Error(warning.message);
 
         default:
-            warn(warning);
+            console.log("WARNING", warning);
     }
 }
